@@ -1,0 +1,1 @@
+1) The code counts the number of blanks, newline characters and space tabs as well to the number of characters.
