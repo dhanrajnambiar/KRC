@@ -4,7 +4,9 @@
 #define BUFFSIZE 100
 
 void ungetch(int);
-void ungets(char s[]);
+void ungets(char u[]);
+void store(char v[]);
+void print_array(char x[]);
 
 int bufp = 0;
 char buf[BUFFSIZE];
@@ -16,26 +18,33 @@ int main()
  ungets(s);
 }
 
-void ungets(char s[])
+void ungets(char u[])
 {
  int i = 0;
- while((c = getchar()) != EOF && c != '\n')
+ store(u);
+
+ while(u[i] != '\0')/*stores each value in s[] character wise to buf[] using ungetch*/
  {
-     s[i] = c;
-     ++i;
+     ungetch(u[i++]);
  }
- s[i] = '\0';
- 
- i = 0;
- while(s[i] != '\0')/*stores each value in s[] character wise to buf[] using ungetch*/
+ ungetch(u[i]);
+
+ print_array(buf);
+}
+
+void store(char v[])
+{
+ int i = 0;
+ while((c = getchar()) != EOF && (c != '\n'))
+     v[i++] = c;
+ v[i] = '\0';
+}
+
+void print_array(char x[])
+{
+ for (int k = 0;x[k] != '\0';++k)
  {
-     ungetch(s[i++]);
- }
- ungetch(s[i]);
- 
- for (int k = 0;(k < i) && (buf[k] != '\0');++k)
- {
-     c = buf[k];
+     c = x[k];
      putchar(c);
  }
  printf("\n");
