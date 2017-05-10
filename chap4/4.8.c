@@ -1,8 +1,5 @@
 #include <stdio.h>
 
-#define SET 1
-#define RESET 0
-
 void ungetch(int);
 int getch(void);
 void ungets(void);
