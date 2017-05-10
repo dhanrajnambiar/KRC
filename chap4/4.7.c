@@ -37,8 +37,7 @@ void ungets(char u[])
  {
      t[tp--] = getch();
  }
-
- printf("%s\n", t);
+ print_array(t);
 }
 
 void store(char v[])
