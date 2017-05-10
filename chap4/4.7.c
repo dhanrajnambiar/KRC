@@ -4,6 +4,7 @@
 #define BUFFSIZE 100
 
 void ungetch(int);
+int getch(void);
 void ungets(char u[]);
 void store(char v[]);
 void print_array(char x[]);
@@ -12,6 +13,8 @@ int bufp = 0;
 char buf[BUFFSIZE];
 char s[MAX];
 char c;
+char t[MAX];
+int tp = 0;
 
 int main()
 {
@@ -29,7 +32,13 @@ void ungets(char u[])
  }
  ungetch(u[i]);
 
- print_array(buf);
+ tp = i;
+ while(tp >= 0)
+ {
+     t[tp--] = getch();
+ }
+
+ printf("%s\n", t);
 }
 
 void store(char v[])
@@ -56,4 +65,9 @@ void ungetch(int c)
      printf("ungetch:too many characters\n");
  else
      buf[bufp++] = c;
+}
+
+int getch(void)
+{
+ return (bufp > 0) ? buf[--bufp]:getchar();
 }
