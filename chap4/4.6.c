@@ -140,7 +140,6 @@ int getop(char s[])
          return POW;
      else if(strcmp(lastval,command) == 0)
          return LAST;
-     return c;
  }
  if (!isdigit(c) && c != '.')
      return c;

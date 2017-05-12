@@ -101,7 +101,6 @@ int getop(char s[])
          return NUM2;
      else if(strcmp(dupe,command) == 0)
          return NUM3;
-     return c;
  }
  if (!isdigit(c) && c != '.')
      return c;

@@ -132,7 +132,6 @@ int getop(char s[])
          return EXP;
      else if(strcmp(pow,command) == 0)
          return POW;
-     return c;
  }
  if (!isdigit(c) && c != '.')
      return c;
